@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: student-results-api
+    env: node
+    plan: free
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: JWT_SECRET
+        sync: false
+      - key: MONGODB_URI
+        sync: false
+
+  - type: static
+    name: student-results-frontend
+    env: static
+    branch: main
+    buildCommand: cd frontend && npm ci && npm run build
+    publishPath: frontend/dist

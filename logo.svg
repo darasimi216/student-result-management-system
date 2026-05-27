@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Simple, original SVG logo for Thomas Adewumi University -->
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="80" viewBox="0 0 280 80" role="img" aria-labelledby="title">
+  <title id="title">Thomas Adewumi University</title>
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect rx="12" ry="12" width="280" height="80" fill="url(#g)" />
+  <g transform="translate(16,12)">
+    <circle cx="28" cy="28" r="24" fill="#fff"/>
+    <text x="28" y="36" font-family="Segoe UI, Arial, sans-serif" font-weight="700" font-size="18" fill="#4f46e5" text-anchor="middle">TA</text>
+  </g>
+  <g transform="translate(72,24)">
+    <text x="0" y="0" font-family="Segoe UI, Arial, sans-serif" font-weight="700" font-size="18" fill="#fff">Thomas Adewumi</text>
+    <text x="0" y="20" font-family="Segoe UI, Arial, sans-serif" font-weight="600" font-size="12" fill="#f3f4f6">University</text>
+  </g>
+</svg>

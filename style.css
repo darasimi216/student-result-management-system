@@ -1,0 +1,405 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/* Accessibility & touch improvements */
+button:focus,
+input:focus,
+select:focus {
+    outline: 3px solid rgba(102,126,234,0.25);
+    outline-offset: 2px;
+}
+
+button {
+    min-height: 44px;
+}
+
+/* Auth Styles */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.auth-box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-box h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.auth-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.auth-tab {
+    flex: 1;
+    padding: 10px;
+    background: #f0f0f0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.auth-tab.active {
+    background: #667eea;
+    color: white;
+}
+
+.auth-content {
+    display: none;
+}
+
+.auth-content.active {
+    display: block;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.auth-input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 12px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.auth-btn:hover {
+    background: #5568d3;
+}
+
+.error-message {
+    color: #ff6b6b;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+/* App Styles */
+.app-container {
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.site-logo {
+    width: 56px;
+    height: 56px;
+    display: inline-block;
+    border-radius: 8px;
+    background: white;
+    padding: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.header h2 {
+    color: #333;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+}
+
+.user-info span {
+    color: #666;
+}
+
+.logout-btn {
+    padding: 8px 16px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.logout-btn:hover {
+    background: #ee5a52;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.input-group input,
+.input-group select {
+    flex: 1;
+    min-width: 150px;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.primary-btn {
+    padding: 12px 30px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.3s;
+    white-space: nowrap;
+}
+
+.primary-btn:hover {
+    background: #5568d3;
+}
+
+.filter-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-group input,
+.filter-group select {
+    flex: 1;
+    min-width: 150px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.export-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.export-btn {
+    padding: 10px 20px;
+    background: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.export-btn:hover {
+    background: #27ae60;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 30px;
+    border-collapse: collapse;
+}
+
+thead tr {
+    background: #667eea;
+}
+
+th {
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background: #f9f9f9;
+}
+
+.delete-btn {
+    background: #ff6b6b;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.3s;
+}
+
+.delete-btn:hover {
+    background: #ee5a52;
+}
+
+.edit-btn {
+    background: #3498db;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 5px;
+    transition: background 0.3s;
+}
+
+.edit-btn:hover {
+    background: #2980b9;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.stat-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-box h4 {
+    font-size: 13px;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.stat-box p {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.empty-message {
+    text-align: center;
+    color: #999;
+    padding: 40px;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    .input-group input,
+    .input-group select {
+        min-width: auto;
+    }
+
+    .filter-group {
+        flex-direction: column;
+    }
+
+    .filter-group input,
+    .filter-group select {
+        min-width: auto;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .site-logo {
+        width: 48px;
+        height: 48px;
+    }
+}

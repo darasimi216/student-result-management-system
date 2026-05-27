@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="description" content="Student Result Management System for Thomas Adewumi University">
+    <title>Result Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="assets/manifest.json">
+</head>
+<body>
+    <!-- Auth Container -->
+    <div id="authContainer" class="auth-container">
+        <div class="auth-box">
+            <h2>Student Result Management</h2>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="switchTab('login')">Login</button>
+                <button class="auth-tab" onclick="switchTab('signup')">Sign Up</button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="loginTab" class="auth-content active">
+                <input type="email" id="loginEmail" placeholder="Email" class="auth-input">
+                <input type="password" id="loginPassword" placeholder="Password" class="auth-input">
+                <button onclick="login()" class="auth-btn">Login</button>
+                <p id="loginError" class="error-message"></p>
+            </div>
+
+            <!-- Signup Form -->
+            <div id="signupTab" class="auth-content">
+                <input type="text" id="signupName" placeholder="Full Name" class="auth-input">
+                <input type="email" id="signupEmail" placeholder="Email" class="auth-input">
+                <input type="password" id="signupPassword" placeholder="Password" class="auth-input">
+                <select id="signupRole" class="auth-input">
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                </select>
+                <button onclick="signup()" class="auth-btn">Sign Up</button>
+                <p id="signupError" class="error-message"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="appContainer" class="app-container" style="display: none;">
+        <div class="container">
+            <div class="header">
+                <div class="header-left">
+                    <img id="siteLogo" src="assets/logo.svg" alt="Thomas Adewumi University" class="site-logo">
+                    <h2>Student Result Management System</h2>
+                </div>
+                <div class="user-info">
+                    <span id="userName"></span>
+                    <span id="userRole"></span>
+                    <button onclick="logout()" class="logout-btn">Logout</button>
+                </div>
+            </div>
+
+            <!-- Teacher Form -->
+            <div id="teacherSection" style="display: none;">
+                <div class="input-group">
+                    <input type="hidden" id="editingId" value="">
+                    <input type="text" id="studentName" placeholder="Enter Student Name" maxlength="50">
+                    <input type="text" id="studentId" placeholder="Student ID (optional)">
+                    <input type="number" id="studentScore" placeholder="Enter Score (0-100)" min="0" max="100">
+                    <input type="text" id="subject" placeholder="Subject (optional)">
+                    <button id="saveBtn" onclick="saveResult()" class="primary-btn">Add Result</button>
+                    <button id="cancelEditBtn" onclick="cancelEdit()" class="primary-btn" style="display:none; background:#999;">Cancel</button>
+                </div>
+            </div>
+
+            <!-- Search Filter -->
+            <div class="filter-group">
+                <input type="text" id="searchName" placeholder="Search by name" onkeyup="filterResults()">
+                <select id="filterSubject" onchange="filterResults()">
+                    <option value="">All Subjects</option>
+                    <option value="Math">Math</option>
+                    <option value="English">English</option>
+                    <option value="Science">Science</option>
+                    <option value="General">General</option>
+                </select>
+                <select id="filterStatus" onchange="filterResults()">
+                    <option value="">All Status</option>
+                    <option value="Pass">Pass</option>
+                    <option value="Fail">Fail</option>
+                </select>
+                <select id="filterGrade" onchange="filterResults()">
+                    <option value="">All Grades</option>
+                    <option value="A+">A+</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="F">F</option>
+                </select>
+            </div>
+
+            <!-- Export Buttons -->
+            <div class="export-group">
+                <button onclick="exportCSV()" class="export-btn">Download CSV</button>
+                <button onclick="exportPDF()" class="export-btn">Download PDF</button>
+            </div>
+
+            <!-- Table -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                        <th>Grade</th>
+                        <th>Status</th>
+                        <th>Subject</th>
+                        <th>Date</th>
+                        <th id="actionHeader" style="display: none;">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="resultTable"></tbody>
+            </table>
+
+            <div id="emptyMessage" class="empty-message">No results found. Add a student result to get started!</div>
+
+            <!-- Statistics -->
+            <div class="stats">
+                <div class="stat-box">
+                    <h4>Total Students</h4>
+                    <p id="totalStudents">0</p>
+                </div>
+                <div class="stat-box">
+                    <h4>Average Score</h4>
+                    <p id="averageScore">0</p>
+                </div>
+                <div class="stat-box">
+                    <h4>Highest Score</h4>
+                    <p id="highestScore">0</p>
+                </div>
+                <div class="stat-box">
+                    <h4>Lowest Score</h4>
+                    <p id="lowestScore">0</p>
+                </div>
+                <div class="stat-box">
+                    <h4>Pass Count</h4>
+                    <p id="passCount">0</p>
+                </div>
+                <div class="stat-box">
+                    <h4>Fail Count</h4>
+                    <p id="failCount">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
