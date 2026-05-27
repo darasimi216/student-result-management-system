@@ -2,9 +2,9 @@
 
 A complete full-stack application for managing student results with authentication, data export, and statistics.
 
-[![Smoke Tests](https://github.com/<OWNER>/<REPO>/actions/workflows/smoke-ci.yml/badge.svg)](https://github.com/<OWNER>/<REPO>/actions/workflows/smoke-ci.yml)
+[![Smoke Tests](https://github.com/darasimi216/student-result-management-system/actions/workflows/smoke-ci.yml/badge.svg)](https://github.com/darasimi216/student-result-management-system/actions/workflows/smoke-ci.yml)
 
-Note: replace `<OWNER>/<REPO>` in the badge URL with your GitHub repository path to enable the live status badge.
+Live repository: https://github.com/darasimi216/student-result-management-system
 
 ## Features
 
